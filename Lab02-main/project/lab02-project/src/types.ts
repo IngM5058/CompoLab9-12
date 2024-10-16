@@ -8,15 +8,12 @@ export interface Event {
   time: string
   petsAllowed: boolean
   organizer: Organizer
-  participant: Participant[]
-  images: string[]
 }
 export interface Organizer {
   id: number
   name: string
   address: string
-  imageUrl: string[]
-  roles: string[]
+  image: string
 }
 export interface Participant {
   id: number

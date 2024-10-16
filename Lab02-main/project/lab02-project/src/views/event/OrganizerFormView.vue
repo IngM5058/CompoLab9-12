@@ -20,9 +20,8 @@ const store = useMessageStore()
 function saveOrganizer() {
   OrganizerService.saveOrganizer(organizer.value)
     .then((response) => {
-      
-      store.updateMessage('You are successfully add a new oragnization for ' + 
-      response.data.title)
+      store.updateMessage('You have successfully added a new organization: ' + 
+      response.data.name)
       setTimeout(() => {
         store.resetMessage()
       }, 3000)
@@ -35,15 +34,13 @@ function saveOrganizer() {
 
 <template>
     <div>
-      <h1>Create an Event</h1>
+      <h1>Create an Organization</h1>
       <form @submit.prevent="saveOrganizer">
-        <label>oragnization name</label>
-        <input v-model="organizer.name" type="text" placeholder="Category"
-        class="field"/>
+        <label>Organization name</label>
+        <input v-model="organizer.name" type="text" placeholder="Name" class="field"/>
         
         <h3>Address</h3>
-        <label>Title</label>
-        <input v-model="organizer.address" type="text" placeholder="Title" class="field"/>
+        <input v-model="organizer.address" type="text" placeholder="Address" class="field"/>
 
         <h3>The image of the organizer</h3>
         <ImageUpload v-model="organizer.image" />
